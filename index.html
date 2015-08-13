@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    
+  </head>
+  <body ng-controller="mainCtrl">
+    
+    <h1>Story Editor</h1>
+
+    <div>
+      <button ng-click="createNewStory()">Create New Story</button>
+      <br><br>
+      Title:
+      <input ng-model="title" type="text" ng-show="editing" />
+      <button ng-click="editing = false" ng-show="editing">Done</button>
+      <span ng-hide="editing" ng-click="editing = true">{{title}}</span>
+
+    </div>
+    <div style="float:right; margin-right:200px">
+      <h2>Story List</h2>
+      <div ng-repeat="story in stories">
+        <a ng-click="selectStory(story)" href="">{{story.data.title}}</a>
+      </div>
+    </div>
+
+    <div>
+      <textarea name="story" id="story" cols="30" rows="10" ng-model="text"></textarea>
+      <br>
+      <button ng-click="save(title, text)">Save</button>
+    </div>
+
+
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="mainCtrl.js"></script>
+  </body>
+</html>
