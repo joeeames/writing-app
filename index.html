@@ -11,7 +11,7 @@
       <button ng-click="createNewStory()">Create New Story</button>
       <br><br>
       Title:
-      <input ng-model="title" type="text" ng-show="editing" />
+      <input ng-model="title" type="text" ng-show="editing" ng-keypress="saveTitle($event)"/>
       <button ng-click="editing = false" ng-show="editing">Done</button>
       <span ng-hide="editing" ng-click="editing = true">{{title}}</span>
 

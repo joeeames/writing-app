@@ -12,6 +12,12 @@ angular.module('app').controller('mainCtrl', function($scope) {
     $scope.$apply();
   })
 
+  $scope.saveTitle = function($event) {
+    if($event.charCode === 13) {
+      $scope.editing = false;
+    }
+  }
+
   $scope.selectStory = function(story) {
     $scope.title = story.data.title;
     $scope.text = story.data.text;
